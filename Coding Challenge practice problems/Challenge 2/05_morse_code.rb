@@ -29,13 +29,13 @@ def morse_encode(str)
 	  "z" => "--.."
 	}
 
-	morse_msg = ""
-
-	for x in (0...str.length)
-		morse_msg << " "
-		morse_msg += morse_code[str[x]] unless str[x]==" "
+	morse_msg = []
+	
+	str.downcase.split.each do |word|
+		morse = word.downcase.split("").collect{|c| morse_code[c]}
+		morse_msg << morse.join(" ")
 	end
 
-	return morse_msg[1..-1]
+	return morse_msg.join("  ")
 
 end

@@ -1,21 +1,10 @@
 def ordered_vowel_words(str)
 
 	def in_order?(word)
-		word_arr = word.split("")
-		vowels = word_arr.select { |letter| "aeiou".include?(letter.downcase) }
-		if vowels == vowels.sort then return true
-		else return false
-		end
+		vowels = word.downcase.scan(/[aeiou]/)
+		vowels == vowels.sort
 	end
 
-	words = str.split(" ")
-	output = []
-	
-	words.each do |word|
-		if in_order?(word)
-			output << word
-		end
-	end
+    str.split(" ").select{|word| in_order?(word)} .join(" ")
 
-	return output.join(" ")
 end

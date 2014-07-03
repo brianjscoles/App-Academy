@@ -1,15 +1,9 @@
-require 'set'
-
 def no_repeats(year_start, year_end)
 	
-	def has_repeat?(num)
-		return true if num.to_s.split("").to_set.length < num.to_s.length
-		return false
+	def all_uniq?(num)
+		return false if num.to_s.split("").uniq.length < num.to_s.length
+		return true
 	end
 
-	years = []
-	for i in (year_start..year_end) 
-		years << i unless has_repeat?(i)
-	end
-	return years
+	return (year_start..year_end).select{|year| all_uniq?(year)}
 end

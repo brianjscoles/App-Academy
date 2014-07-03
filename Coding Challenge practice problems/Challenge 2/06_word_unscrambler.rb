@@ -19,3 +19,9 @@ def word_unscrambler(str, words)
 	return(lex[target])
 
 end
+
+
+def slick_unscrambler(str, words)
+	words.select{|word| word.split("").sort == str.split("").sort}
+end
+
