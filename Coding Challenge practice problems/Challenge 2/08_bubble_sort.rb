@@ -9,5 +9,3 @@ def bubble_sort(arr)
 	end
 	return arr
 end
-
-print bubble_sort([8,3,1,2,9,7,2,1,3,11])
